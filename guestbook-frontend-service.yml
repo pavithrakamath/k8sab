@@ -4,7 +4,7 @@ metadata:
   name: guestbook-app-service
  
 spec:
-  selectors:     
+  selector:     
     app: guestbook-app
     name: guestbook-app-pod
   ports:
