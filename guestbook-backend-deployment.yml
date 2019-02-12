@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: redis-pod
+      labels:
+        app: guestbook-app
+        name: redis-pod
+    spec:
+      containers:
+        - name: redis
+          image: redis
+          ports: 
+            - containerPort: 6379
+  selector: 
+    matchLabels: 
+      app: guestbook-app
+      name: redis-pod
